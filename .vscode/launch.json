@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Agregar",
+            "request": "launch",
+            "mainClass": "Vista.Agregar",
+            "projectName": "Examen_Parcial_1_313dd825"
+        },
+        {
+            "type": "java",
+            "name": "Menu",
+            "request": "launch",
+            "mainClass": "Vista.Menu",
+            "projectName": "Examen_Parcial_1_313dd825"
+        },
+        {
+            "type": "java+",
+            "request": "launch",
+            "name": "Launch Java App"
+        }
+    ]
+}

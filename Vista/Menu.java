@@ -1,3 +1,112 @@
-public class Menu extends JFrame implements ActionListener {
+package Vista;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.*;
+import java.awt.*;
 
-}
+public class Menu extends JFrame implements ActionListener {
+   private JPanel Panel1;
+   private JButton Next, Agregar, Buscar, Eliminar, Mostrar;
+   private JLabel Label1, Label2, Label3, Label4;
+
+public Menu(){     
+    setLayout(null);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+     Agregar = new JButton("Agregar");
+     Agregar.setBounds(210, 220, 430,35);  
+     Agregar.setHorizontalAlignment(SwingConstants.LEFT);
+     Agregar.setBackground(new Color(39, 244, 225));
+     Agregar.setBorderPainted(false);
+     Agregar.addActionListener(this); 
+     add(Agregar);
+
+     Buscar = new JButton("Buscar");
+     Buscar.setBounds(210, 260, 430,35);
+     Buscar.setHorizontalAlignment(SwingConstants.LEFT);  
+     Buscar.setBackground(new Color(39, 244, 225));
+     Buscar.setBorderPainted(false);
+     Buscar.addActionListener(this); 
+     add(Buscar);
+
+     Mostrar = new JButton("Mostrar");
+     Mostrar.setBounds(210, 300, 430,35);
+     Mostrar.setHorizontalAlignment(SwingConstants.LEFT);
+     Mostrar.setBackground(new Color(39, 244, 225));
+     Mostrar.setBorderPainted(false);  
+     Mostrar.addActionListener(this); 
+     add(Mostrar);
+
+     Eliminar = new JButton("Eliminar");
+     Eliminar.setBounds(210, 340, 430,35);
+     Eliminar.setHorizontalAlignment(SwingConstants.LEFT);  
+     Eliminar.setBackground(new Color(39, 244, 225));
+     Eliminar.setBorderPainted(false);
+     Eliminar.addActionListener(this); 
+     add(Eliminar);
+
+     Label1 = new JLabel("<html>Bienvenidos <center> al <br>Programa <br>de <br>Centros <br>de <br>Refugios <br>Rodriguez</html>");
+     Label1.setBounds(0, 40, 200, 300);
+     Font fuente = new Font("Courier New", Font.BOLD, 26); // Tipo de fuente, estilo y tamaño
+     Label1.setForeground(Color.WHITE);
+     Label1.setHorizontalAlignment(SwingConstants.CENTER);
+     Label1.setFont(fuente);
+     add(Label1);
+
+     Label2 = new JLabel("<html>Programa de centros de refugios Rodriguez</html>");
+     Label2.setBounds(170, -110, 450, 400);
+     Font fuent = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
+     Label2.setForeground(Color.BLACK);
+     Label2.setHorizontalAlignment(SwingConstants.CENTER);
+     Label2.setFont(fuent);
+     add(Label2);
+
+     Label3 = new JLabel("<html><div style='text-align: justify;'> "
+     + "Este programa te va a ayudar a administrar todo un refugio. Este mismo te dejara insertar un limite de camas y servicios con los que cuenta tu refugio tambien te permitirá añadir, buscar y eliminar a las personas que tienes en este mismo te va a permitir controlar de la mejor manera este refugio</div></html>");
+     Label3.setBounds(210, -60, 450, 400);
+     Font fuen = new Font("Courier New", Font.BOLD, 12); // Tipo de fuente, estilo y tamaño
+     Label3.setForeground(new Color(70, 111, 106 ));
+     Label3.setHorizontalAlignment(SwingConstants.CENTER);
+     Label3.setFont(fuen);
+     add(Label3);
+
+     Label4 = new JLabel("Refugio_Rodriguez@gmail.com");
+     Label4.setBounds(-5, 345, 200, 100);
+     Label4.setForeground(Color.WHITE);
+     Label4.setHorizontalAlignment(SwingConstants.CENTER);
+     add(Label4);
+
+     Panel1 = new JPanel();
+     Panel1.setBounds(0, 0, 200, 450);
+     Panel1.setBackground(new Color(114, 47, 169));
+     add(Panel1);
+
+
+
+}//Fin del metodo constructor
+
+public static void main(String[] Ars){//Creamos el JFrame 
+    Menu llamar = new Menu();
+    llamar.setBounds(0,0,670,450);
+    llamar.setVisible(true);
+    llamar.setLocationRelativeTo(null);
+    llamar.getContentPane().setBackground(Color.WHITE);//Color
+
+    }//Fin del main
+
+
+@Override
+public void actionPerformed(ActionEvent e) {
+    
+    if (e.getSource() == Agregar){
+        Agregar llamar = new Agregar();
+        llamar.setBounds(0,0,670,450);
+        llamar.setVisible(true);
+        llamar.setLocationRelativeTo(null);
+        llamar.getContentPane().setBackground(Color.WHITE);//Color
+}//Fin if
+
+}//Fin de las acciones
+
+}//Fin de la clase
