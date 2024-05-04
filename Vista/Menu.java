@@ -7,9 +7,10 @@ import java.awt.*;
 
 public class Menu extends JFrame implements ActionListener {
    private JPanel Panel1;
-   private JButton Next, Agregar, Buscar, Eliminar, Mostrar;
-   private JLabel Label1, Label2, Label3, Label4;
-
+   private JButton Agregar, Buscar, Eliminar, Mostrar;
+   private JLabel Label1, Label2, Label3, Label4, Label5, Label6, Label7, Label8;
+   private ImageIcon imagen;
+   private Icon icono;
 public Menu(){     
     setLayout(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -55,7 +56,7 @@ public Menu(){
      add(Label1);
 
      Label2 = new JLabel("<html>Programa de centros de refugios Rodriguez</html>");
-     Label2.setBounds(170, -110, 450, 400);
+     Label2.setBounds(165, -110, 450, 400);
      Font fuent = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
      Label2.setForeground(Color.BLACK);
      Label2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -63,8 +64,8 @@ public Menu(){
      add(Label2);
 
      Label3 = new JLabel("<html><div style='text-align: justify;'> "
-     + "Este programa te va a ayudar a administrar todo un refugio. Este mismo te dejara insertar un limite de camas y servicios con los que cuenta tu refugio tambien te permitirá añadir, buscar y eliminar a las personas que tienes en este mismo te va a permitir controlar de la mejor manera este refugio</div></html>");
-     Label3.setBounds(210, -60, 450, 400);
+     + "Este programa te va a ayudar a administrar de la mejor manera posible tu refugio. Aquí podrás agregar el límite de camas y servicios con los que cuenta tu refugio. Mediante las acciones de agregar, buscar, mostrar y eliminar a las personas, el programa te beneficiará en el manejo muy organizado del refugio para las personas sin hogar. </div></html>");
+     Label3.setBounds(205, -60, 450, 400);
      Font fuen = new Font("Courier New", Font.BOLD, 12); // Tipo de fuente, estilo y tamaño
      Label3.setForeground(new Color(70, 111, 106 ));
      Label3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -76,6 +77,28 @@ public Menu(){
      Label4.setForeground(Color.WHITE);
      Label4.setHorizontalAlignment(SwingConstants.CENTER);
      add(Label4);
+
+     Label5 = new JLabel();//En este Label se inserta la imagen de fondo
+    Label5.setBounds(200, 0, 30, 30);  
+    this.Pintar(this.Label5, "C:\\Users\\deiby\\OneDrive - Universidad de Costa Rica\\Programación II\\instagram.png");
+    add(Label5);
+
+    Label6 = new JLabel("Refugio_Rodriguez");
+    Label6.setBounds(185, 0, 200, 30);
+    Label6.setForeground(Color.BLACK);
+    Label6.setHorizontalAlignment(SwingConstants.CENTER);
+    add(Label6);
+
+    Label7 = new JLabel();//En este Label se inserta la imagen de fondo
+    Label7.setBounds(370, 0, 30, 30);  
+    this.Pintar(this.Label7, "C:\\Users\\deiby\\OneDrive - Universidad de Costa Rica\\Programación II\\whatsapp.jpeg");
+    add(Label7);
+
+    Label8 = new JLabel("61827027");
+    Label8.setBounds(330, 0, 200, 30);
+    Label8.setForeground(Color.BLACK);
+    Label8.setHorizontalAlignment(SwingConstants.CENTER);
+    add(Label8);
 
      Panel1 = new JPanel();
      Panel1.setBounds(0, 0, 200, 450);
@@ -108,5 +131,17 @@ public void actionPerformed(ActionEvent e) {
 }//Fin if
 
 }//Fin de las acciones
+
+private void Pintar (JLabel lbl, String ruta) { //Este metodo se utiliza para ponerle imagenes de fondo a los Labels
+	this.imagen = new ImageIcon(ruta);
+	this.icono = new ImageIcon(
+			this.imagen.getImage().getScaledInstance(
+					lbl.getWidth(),
+					lbl.getHeight(),
+					Image.SCALE_DEFAULT)
+			);	
+	lbl.setIcon(this.icono);
+	this.repaint();
+	}//Fin del metodo Pintar
 
 }//Fin de la clase
