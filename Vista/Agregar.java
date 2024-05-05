@@ -33,7 +33,7 @@ public Agregar(){
      La1.setFont(fuent);
      add(La1);
 
-     La2 = new JLabel("<html>Lugar</html>");
+     La2 = new JLabel("<html>Ubicacion</html>");
      La2.setBounds(20, 70, 100, 40);
      Font fuente = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
      La2.setForeground(Color.BLACK);
@@ -50,21 +50,18 @@ public Agregar(){
     TextNombre = new JTextField("");
     TextNombre.setBounds(130, 25, 120, 30);
     TextNombre.setBackground(new Color(210, 240, 236)); 
-    TextNombre.setForeground(Color.decode("#333333")); // Color de texto gris oscuro 
     TextNombre.setBorder(null);
     add(TextNombre);
 
     TextLugar = new JTextField("");
     TextLugar.setBounds(130, 75, 120, 30);
     TextLugar.setBackground(new Color(210, 240, 236)); 
-    TextLugar.setForeground(Color.decode("#333333")); // Color de texto gris oscuro 
     TextLugar.setBorder(null);
     add(TextLugar);
 
     TextCapacidad = new JTextField("");
     TextCapacidad.setBounds(130, 125, 120, 30);
     TextCapacidad.setBackground(new Color(210, 240, 236)); 
-    TextCapacidad.setForeground(Color.decode("#333333")); // Color de texto gris oscuro 
     TextCapacidad.setBorder(null);
     add(TextCapacidad);
 
