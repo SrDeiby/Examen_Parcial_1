@@ -1,7 +1,6 @@
 package Vista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,7 +10,7 @@ public class Menu extends JFrame implements ActionListener {
    private JLabel Label1, Label2, Label3, Label4, Label5, Label6, Label7, Label8;
    private ImageIcon imagen;
    private Icon icono;
-   
+
 public Menu(){     
     setLayout(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -129,6 +128,14 @@ public void actionPerformed(ActionEvent e) {
         llamar.setVisible(true);
         llamar.setLocationRelativeTo(null);
         llamar.getContentPane().setBackground(new Color(178, 217, 227));//Color
+}//Fin if
+
+if (e.getSource() == Buscar){
+    Buscar llamar = new Buscar();
+    llamar.setBounds(0,0,670,450);
+    llamar.setVisible(true);
+    llamar.setLocationRelativeTo(null);
+    llamar.getContentPane().setBackground(new Color(178, 217, 227));//Color
 }//Fin if
 
 }//Fin de las acciones
