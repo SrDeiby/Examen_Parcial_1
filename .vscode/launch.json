@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AgregarIndigente",
+            "request": "launch",
+            "mainClass": "Vista.AgregarIndigente",
+            "projectName": "Examen_Parcial_1_313dd825"
+        },
+        {
+            "type": "java",
             "name": "Buscar",
             "request": "launch",
             "mainClass": "Vista.Buscar",

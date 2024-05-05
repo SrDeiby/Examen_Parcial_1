@@ -78,9 +78,9 @@ public Menu(){
      Label4.setHorizontalAlignment(SwingConstants.CENTER);
      add(Label4);
 
-     Label5 = new JLabel();//En este Label se inserta la imagen de fondo
+    Label5 = new JLabel();//En este Label se inserta la imagen de fondo
     Label5.setBounds(200, 0, 30, 30);  
-    this.Pintar(this.Label5, "C:\\Users\\deiby\\OneDrive - Universidad de Costa Rica\\Programación II\\instagram.png");
+    this.Pintar(this.Label5, "imagenes\\instagram.png");
     add(Label5);
 
     Label6 = new JLabel("Refugio_Rodriguez");
@@ -91,7 +91,7 @@ public Menu(){
 
     Label7 = new JLabel();//En este Label se inserta la imagen de fondo
     Label7.setBounds(370, 0, 30, 30);  
-    this.Pintar(this.Label7, "C:\\Users\\deiby\\OneDrive - Universidad de Costa Rica\\Programación II\\whatsapp.jpeg");
+    this.Pintar(this.Label7, "imagenes\\whatsapp.jpeg");
     add(Label7);
 
     Label8 = new JLabel("61827027");
