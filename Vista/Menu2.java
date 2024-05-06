@@ -138,7 +138,7 @@ if (e.getSource() == Buscar){
     llamar.setVisible(true);
     llamar.setLocationRelativeTo(null);
     llamar.getContentPane().setBackground(new Color(178, 217, 227));//Color
-}//Fin if
+}//Fin ir a llamar
 
 if (e.getSource() == Mostrar){
     Mostrar llamar = new Mostrar();
@@ -148,8 +148,8 @@ if (e.getSource() == Mostrar){
 }//fin ir a mostrar
 
 if (e.getSource() == Eliminar){
-
-}//Fin ir Buscar
+    
+}//fin ir a eliminar
 
 }//Fin de las acciones
 
