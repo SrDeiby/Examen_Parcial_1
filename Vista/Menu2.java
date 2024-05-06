@@ -140,6 +140,13 @@ if (e.getSource() == Buscar){
     llamar.getContentPane().setBackground(new Color(178, 217, 227));//Color
 }//Fin if
 
+if (e.getSource() == Mostrar){
+    Mostrar llamar = new Mostrar();
+    llamar.setBounds(0,0,670,450);
+    llamar.setVisible(true);
+    llamar.setLocationRelativeTo(null);
+    llamar.getContentPane().setBackground(new Color(178, 217, 227));//Color
+
 if (e.getSource() == Eliminar){
 
 }//Fin ir Buscar
