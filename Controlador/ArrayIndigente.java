@@ -7,4 +7,4 @@ public class ArrayIndigente {
 
 public static ArrayList<Indigente> indigente = new ArrayList<>();
 
-}
+}//Fin de la clase

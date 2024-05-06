@@ -9,9 +9,9 @@ import java.awt.*;
 public class AgregarIndigente extends JFrame implements ActionListener{
 
     private JButton Agregar, Salir;
-    private JLabel La1, La2, La3, La4;
-    private JTextField TextNombree, TextEdad, TextTiempo;
-    public static String NOM, EDAD, TIEMPO;
+    private JLabel La1, La2, La3, La4, La5;
+    private JTextField TextNombree, TextEdad, TextTiempo, TextCama;
+    public static String NOM, EDAD, TIEMPO, CAMA;
     public AgregarIndigente(){
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -49,6 +49,13 @@ public class AgregarIndigente extends JFrame implements ActionListener{
          La3.setForeground(Color.BLACK);
          La3.setFont(fuentee);
          add(La3);
+
+         La4 = new JLabel("<html>Cama</html>");
+         La4.setBounds(20, 250, 100, 40);
+         Font fuenteeee = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
+         La4.setForeground(Color.BLACK);
+         La4.setFont(fuenteeee);
+         add(La4);
     
         TextNombree = new JTextField("");
         TextNombree.setBounds(130, 105, 120, 30);
@@ -68,12 +75,18 @@ public class AgregarIndigente extends JFrame implements ActionListener{
         TextTiempo.setBorder(null);
         add(TextTiempo);
 
-        La4 = new JLabel("<html>Registro de personas a tu refugio</html>");
-     La4.setBounds(130, 20, 400, 50);
+        TextCama = new JTextField("");
+        TextCama.setBounds(130, 255, 120, 30);
+        TextCama.setBackground(new Color(210, 240, 236)); 
+        TextCama.setBorder(null);
+        add(TextCama);
+
+     La5 = new JLabel("<html>Registro de personas a tu refugio</html>");
+     La5.setBounds(130, 20, 400, 50);
      Font fue = new Font("Courier New", Font.BOLD, 20); // Tipo de fuente, estilo y tamaño
-     La4.setForeground(Color.BLACK);
-     La4.setFont(fue);
-     add(La4);
+     La5.setForeground(Color.BLACK);
+     La5.setFont(fue);
+     add(La5);
     
     }//Fin del constructor
     
@@ -94,14 +107,14 @@ public class AgregarIndigente extends JFrame implements ActionListener{
          NOM = TextNombree.getText();
          EDAD = TextEdad.getText();
          TIEMPO = TextTiempo.getText();
-         
-         
-        ArrayIndigente.indigente.add(new Indigente(NOM, EDAD, TIEMPO));//Guardamos los elementos en el ArrayList que se obtuvieron desde los JTextField en la interfaz grafica
+         CAMA = TextCama.getText(); 
+
+        ArrayIndigente.indigente.add(new Indigente(NOM, EDAD, TIEMPO, CAMA));//Guardamos los elementos en el ArrayList que se obtuvieron desde los JTextField en la interfaz grafica
          
         TextNombree.setText("");
         TextEdad.setText("");
         TextTiempo.setText("");
-           
+        TextCama.setText(""); 
          JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente");
          }//Fin if
     
