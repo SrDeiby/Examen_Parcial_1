@@ -12,6 +12,7 @@ public class Menu extends JFrame implements ActionListener {
    private Icon icono;
 
 public Menu(){     
+    //Creacion de los elementos de la intefaz grafica
     setLayout(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 

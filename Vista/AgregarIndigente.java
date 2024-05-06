@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import Controlador.ArrayIndigente;
+import Modelo.Indigente;
 import Modelo.IndigenteFemenino;
 import Modelo.IndigenteMasculino;
 
@@ -16,8 +17,8 @@ public class AgregarIndigente extends JFrame implements ActionListener {
     private JTextField TextNombree, TextEdad, TextTiempo, TextCama;
     public static String NOM, EDAD, TIEMPO, CAMA, selectedOption;
     private JComboBox<String> comboBox;
-
     public AgregarIndigente() {
+        //Creacion de los elementos de la intefaz grafica
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -101,7 +102,7 @@ public class AgregarIndigente extends JFrame implements ActionListener {
         La5.setFont(fue);
         add(La5);
 
-        String[] items = { "Masculino", "Femenino" };
+        String[] items = { "Masculino", "Femenino" }; //Creacion del ComboBox
         comboBox = new JComboBox<>(items);
         comboBox.setBounds(385, 175, 150, 30);
         add(comboBox);
@@ -120,6 +121,7 @@ public class AgregarIndigente extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+
         if (e.getSource() == Agregar) {
             // Accion del boton de Agregar
             NOM = TextNombree.getText();
@@ -127,20 +129,35 @@ public class AgregarIndigente extends JFrame implements ActionListener {
             TIEMPO = TextTiempo.getText();
             CAMA = TextCama.getText();
             selectedOption = comboBox.getSelectedItem().toString();
+           
+            boolean camaDuplicada = false;
+    for (Indigente indigente : ArrayIndigente.indigente) {
+        if (indigente.getNumeroCama().equals(CAMA)) {
+            camaDuplicada = true;
+            break;
+        }
+    }
+    
+    if (camaDuplicada) {//Codigo que nos permite que no se repitan las camas
+        JOptionPane.showMessageDialog(null, "El número de cama ya está en uso. Intente otro número.");
+    } else {
+
             if (selectedOption.equals("Masculino")) {
                 ArrayIndigente.indigente.add(new IndigenteMasculino(NOM, EDAD, TIEMPO, CAMA, selectedOption));
+                JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente");
             } else {
                 ArrayIndigente.indigente.add(new IndigenteFemenino(NOM, EDAD, TIEMPO, CAMA, selectedOption));
+                JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente");
             }
-
+            
             TextNombree.setText("");
             TextEdad.setText("");
             TextTiempo.setText("");
             TextCama.setText("");
-            JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente");
+        }
         } // Fin if
 
-        if (e.getSource() == Salir) {
+        if (e.getSource() == Salir) {//Accion del boton de salir
             Menu2 llamar = new Menu2();
             llamar.setBounds(0, 0, 670, 450);
             llamar.setVisible(true);

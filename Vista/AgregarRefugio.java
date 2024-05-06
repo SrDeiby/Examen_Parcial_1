@@ -12,6 +12,7 @@ private JLabel La1, La2, La3, La4;
 private JTextField TextNombre, TextLugar, TextCapacidad;
 public static String NOM, LUG, CAP;
 public AgregarRefugio(){
+    //Creacion de los elementos de la intefaz grafica
     setLayout(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -106,6 +107,20 @@ public void actionPerformed(ActionEvent e) {
      }//Fin if
 
      if (e.getSource() == Continuar){
+        //Accion del boton de Agregar
+        NOM = TextNombre.getText();
+        LUG = TextLugar.getText();
+        CAP = TextCapacidad.getText();
+        
+        
+       ArrayRefugio.refugio.add(new Refugio(NOM, LUG, CAP));//Guardamos los elementos en el ArrayList que se obtuvieron desde los JTextField en la interfaz grafica
+        
+       TextNombre.setText("");
+       TextLugar.setText("");
+       TextCapacidad.setText("");
+          
+        JOptionPane.showMessageDialog(null, "El refugio se ha agregado exitosamente");
+
         Menu2 llamar = new Menu2();
         llamar.setBounds(0,0,670,450);
         dispose();
