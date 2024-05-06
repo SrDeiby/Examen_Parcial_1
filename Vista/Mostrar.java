@@ -26,6 +26,7 @@ public class Mostrar extends JFrame {
             sb.append("Edad: ").append(indigente.getEdad()).append("\n");
             sb.append("Tiempo: ").append(indigente.getTiempo()).append("\n");
             sb.append("Número de cama: ").append(indigente.getNumeroCama()).append("\n");
+            sb.append("Sexo: ").append(indigente.getOpcion()).append("\n");
             sb.append("Servicio médico adicional: ").append(indigente.determinarServicioMedico()).append("\n");
             sb.append("_________________________________________");
             sb.append("\n"); // Añadir una línea en blanco entre cada indigente
