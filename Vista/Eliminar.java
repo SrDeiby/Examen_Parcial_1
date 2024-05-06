@@ -1,8 +1,10 @@
 package Vista;
 
 import javax.swing.*;
+
 import Controlador.ArrayIndigente;
 import Modelo.Indigente;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,12 +13,12 @@ public class Eliminar extends JFrame {
 
     public Eliminar() {
         // Configurar la ventana
-        setTitle("Eliminar Persona");
-        setSize(670, 450);
+        setTitle("Eliminar Indigente");
+        setSize(300, 150);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Crear y configurar labels, textfields y buttons
+        // Crear y configurar los componentes
         JLabel lblNumeroCama = new JLabel("Número de Cama:");
         JTextField txtNumeroCama = new JTextField();
         JButton btnEliminar = new JButton("Eliminar");
@@ -60,11 +62,8 @@ public class Eliminar extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose(); // Cierra la ventana actual
-                Menu2 llamar = new Menu2();
-                llamar.setBounds(0,0,670,450);
-                llamar.setVisible(true);
-                llamar.setLocationRelativeTo(null);
-                llamar.getContentPane().setBackground(Color.WHITE);//Color
+                Menu2 menu = new Menu2();
+                menu.setVisible(true); // Muestra la ventana del Menu2
             }
         });
 
