@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Indigente extends Persona {
+public abstract class Indigente extends Persona {
 private String Tiempo, NumeroCama, Opcion;
 
 public Indigente(String Nombre, String Edad, String Tiempo, String NumeroCama, String Opcion){
@@ -33,5 +33,8 @@ public String getOpcion() {
 public void setOpcion(String opcion) {
     Opcion = opcion;
 }
+
+public abstract String determinarServicioMedico();
+
 
 }//Fin de la clase

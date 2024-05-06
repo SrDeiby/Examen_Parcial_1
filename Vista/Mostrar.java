@@ -3,8 +3,9 @@ package Vista;
 import javax.swing.*;
 import Controlador.ArrayIndigente;
 import Modelo.Indigente;
-
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class Mostrar extends JFrame {
@@ -24,7 +25,7 @@ public class Mostrar extends JFrame {
             sb.append("Edad: ").append(indigente.getEdad()).append("\n");
             sb.append("Tiempo: ").append(indigente.getTiempo()).append("\n");
             sb.append("Número de cama: ").append(indigente.getNumeroCama()).append("\n");
-            sb.append("Sexo: ").append(indigente.getOpcion()).append("\n");
+            sb.append("Servicio médico: ").append(indigente.determinarServicioMedico()).append("\n");
             sb.append("_________________________________________");
             sb.append("\n"); // Añadir una línea en blanco entre cada indigente
         }
@@ -38,6 +39,23 @@ public class Mostrar extends JFrame {
         
         // Agregar el JScrollPane a la ventana
         add(scrollPane, BorderLayout.CENTER);
+         // Crear botón "Salir"
+        JButton btnSalir = new JButton("Salir");
+        btnSalir.setBackground(new Color(225, 197, 91)); 
+        // Agregar acción al botón "Salir"
+        btnSalir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose(); // Cierra la ventana actual (Mostrar)
+                Menu2 menu = new Menu2();
+                menu.setBounds(0,0,670,450);
+                menu.setLocationRelativeTo(null); // Centra la ventana Menu2 en la pantalla
+                menu.setVisible(true); // Muestra la ventana del Menu2
+            }
+        });
+
+        // Agregar el botón "Salir" al panel sur de la ventana
+        add(btnSalir, BorderLayout.SOUTH);
         
         // Centrar la ventana en la pantalla
         setLocationRelativeTo(null);
