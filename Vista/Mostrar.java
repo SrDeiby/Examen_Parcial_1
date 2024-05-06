@@ -1,7 +1,7 @@
 package Vista;
 
 import javax.swing.*;
-
+import javax.swing.JButton;
 import Controlador.ArrayIndigente;
 import Modelo.Indigente;
 
@@ -42,6 +42,12 @@ public class Mostrar extends JFrame {
         
         // Hacer visible la ventana
         setVisible(true);
+
+        Salir = new JButton("Salir");
+        Salir.setBounds(420, 350, 100, 30);
+        Salir.setBackground(new Color(225, 197, 91)); 
+        Salir.setForeground(Color.BLACK);
+        add(Salir);
     }
     
     public static void main(String[] args) {
