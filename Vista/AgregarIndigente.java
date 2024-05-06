@@ -9,9 +9,10 @@ import java.awt.*;
 public class AgregarIndigente extends JFrame implements ActionListener{
 
     private JButton Agregar, Salir;
-    private JLabel La1, La2, La3, La4, La5;
+    private JLabel La1, La2, La3, La4, La5, La6;
     private JTextField TextNombree, TextEdad, TextTiempo, TextCama;
-    public static String NOM, EDAD, TIEMPO, CAMA;
+    public static String NOM, EDAD, TIEMPO, CAMA, selectedOption;
+    private JComboBox<String> comboBox;
     public AgregarIndigente(){
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -57,7 +58,14 @@ public class AgregarIndigente extends JFrame implements ActionListener{
          La4.setForeground(Color.BLACK);
          La4.setFont(fuenteeee);
          add(La4);
-    
+         
+         La6 = new JLabel("<html>Sexo</html>");
+         La6.setBounds(330, 170, 100, 40);
+         Font fuenteeeee = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
+         La6.setForeground(Color.BLACK);
+         La6.setFont(fuenteeeee);
+         add(La6);
+
         TextNombree = new JTextField("");
         TextNombree.setBounds(130, 105, 120, 30);
         TextNombree.setBackground(new Color(210, 240, 236)); 
@@ -88,7 +96,12 @@ public class AgregarIndigente extends JFrame implements ActionListener{
      La5.setForeground(Color.BLACK);
      La5.setFont(fue);
      add(La5);
-    
+
+     String[] items = {"Masculino", "Femenino"};
+     comboBox = new JComboBox<>(items);
+     comboBox.setBounds(385, 175, 150, 30);
+    add(comboBox);
+
     }//Fin del constructor
     
     public static void main(String[] Ars){//Creamos el JFrame 
@@ -109,9 +122,10 @@ public class AgregarIndigente extends JFrame implements ActionListener{
          EDAD = TextEdad.getText();
          TIEMPO = TextTiempo.getText();
          CAMA = TextCama.getText(); 
+         selectedOption = comboBox.getSelectedItem().toString();
+        ArrayIndigente.indigente.add(new Indigente(NOM, EDAD, TIEMPO, CAMA, selectedOption));//Guardamos los elementos en el ArrayList que se obtuvieron desde los JTextField en la interfaz grafica
+        
 
-        ArrayIndigente.indigente.add(new Indigente(NOM, EDAD, TIEMPO, CAMA));//Guardamos los elementos en el ArrayList que se obtuvieron desde los JTextField en la interfaz grafica
-         
         TextNombree.setText("");
         TextEdad.setText("");
         TextTiempo.setText("");

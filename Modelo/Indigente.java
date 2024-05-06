@@ -1,12 +1,13 @@
 package Modelo;
 
 public class Indigente extends Persona {
-private String Tiempo, NumeroCama;
+private String Tiempo, NumeroCama, Opcion;
 
-public Indigente(String Nombre, String Edad, String Tiempo, String NumeroCama){
+public Indigente(String Nombre, String Edad, String Tiempo, String NumeroCama, String Opcion){
 super(Nombre, Edad);
 this.Tiempo = Tiempo;
 this.NumeroCama = NumeroCama;
+this.Opcion = Opcion;
 }//Fin del constructor
 
 public String getTiempo() {
@@ -23,6 +24,14 @@ public String getNumeroCama() {
 
 public void setNumeroCama(String numeroCama) {
     NumeroCama = numeroCama;
+}
+
+public String getOpcion() {
+    return Opcion;
+}
+
+public void setOpcion(String opcion) {
+    Opcion = opcion;
 }
 
 }//Fin de la clase

@@ -13,7 +13,7 @@ import Modelo.Indigente;
 import java.awt.*;
 
 public class Buscar extends JFrame  implements ActionListener {
-	private JLabel 	Label4, Label6, Label5, Label7,Label8, Label9, Label10, Label11;
+	private JLabel 	Label4, Label6, Label5, Label7,Label8, Label9, Label10, Label11, Label12, Label13;
 	private JTextField Co;
     private JButton Buscar, Salir;
 
@@ -66,6 +66,10 @@ public class Buscar extends JFrame  implements ActionListener {
 	    Label11.setBounds(130, 220, 200, 30);	   
 	    add(Label11);
 
+        Label12 = new JLabel(" ");
+	    Label12.setBounds(130, 265, 200, 30);	   
+	    add(Label12);
+
         Co = new JTextField("");
         Co.setBounds(100, 40, 120, 30);
         Co.setBackground(new Color(210, 240, 236)); 
@@ -78,6 +82,13 @@ public class Buscar extends JFrame  implements ActionListener {
         Label5.setForeground(Color.BLACK);
         Label5.setFont(fuenteee);
         add(Label5);
+
+        Label13 = new JLabel("<html>Sexo</html>");
+        Label13.setBounds(20, 260, 100, 40);
+        Font fuenteeee = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
+        Label13.setForeground(Color.BLACK);
+        Label13.setFont(fuenteeee);
+        add(Label13);
 
          Buscar = new JButton("Buscar");
         Buscar.setBounds(540, 350, 100, 30);
@@ -115,6 +126,7 @@ public void actionPerformed(ActionEvent e) {
 			  Label9.setText(a.getEdad());	  
 			  Label10.setText(a.getTiempo());
               Label11.setText(a.getNumeroCama());
+              Label12.setText(a.getOpcion());
 				  PersonaEncontrada = true;
 			  }//Fin del if
 			  
