@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Mostrar",
+            "request": "launch",
+            "mainClass": "Vista.Mostrar",
+            "projectName": "Examen_Parcial_1_313dd825"
+        },
+        {
+            "type": "java",
+            "name": "Eliminar",
+            "request": "launch",
+            "mainClass": "Vista.Eliminar",
+            "projectName": "Examen_Parcial_1_313dd825"
+        },
+        {
+            "type": "java",
             "name": "Menu2",
             "request": "launch",
             "mainClass": "Vista.Menu2",

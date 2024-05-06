@@ -123,6 +123,7 @@ public class AgregarIndigente extends JFrame implements ActionListener{
             Menu2 llamar = new Menu2();
             llamar.setBounds(0,0,670,450);
             llamar.setVisible(true);
+            dispose();
             llamar.setLocationRelativeTo(null);
             llamar.getContentPane().setBackground(Color.WHITE);//Color    
         

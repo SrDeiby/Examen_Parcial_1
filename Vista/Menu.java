@@ -100,6 +100,7 @@ public void actionPerformed(ActionEvent e) {
     
     if (e.getSource() == Agregar){
         AgregarRefugio llamar = new AgregarRefugio();
+        dispose();
         llamar.setBounds(0,0,670,450);
         llamar.setVisible(true);
         llamar.setLocationRelativeTo(null);

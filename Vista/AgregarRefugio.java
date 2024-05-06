@@ -108,6 +108,7 @@ public void actionPerformed(ActionEvent e) {
      if (e.getSource() == Continuar){
         Menu2 llamar = new Menu2();
         llamar.setBounds(0,0,670,450);
+        dispose();
         llamar.setVisible(true);
         llamar.setLocationRelativeTo(null);
         llamar.getContentPane().setBackground(Color.WHITE);//Color    
@@ -117,7 +118,4 @@ public void actionPerformed(ActionEvent e) {
 
 }//Fin de las acciones
 
-public String getNOMBRE() {
-    return NOM;
-}
 }//Fin de la clase

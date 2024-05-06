@@ -12,7 +12,7 @@ public class Eliminar extends JFrame {
     public Eliminar() {
         // Configurar la ventana
         setTitle("Eliminar Persona");
-        setSize(600, 150);
+        setSize(670, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
@@ -60,8 +60,11 @@ public class Eliminar extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose(); // Cierra la ventana actual
-                Menu2 menu = new Menu2();
-                menu.setVisible(true); // Muestra la ventana del Menu2
+                Menu2 llamar = new Menu2();
+                llamar.setBounds(0,0,670,450);
+                llamar.setVisible(true);
+                llamar.setLocationRelativeTo(null);
+                llamar.getContentPane().setBackground(Color.WHITE);//Color
             }
         });
 

@@ -124,16 +124,18 @@ public static void main(String[] Ars){//Creamos el JFrame
 public void actionPerformed(ActionEvent e) {
     
     if (e.getSource() == Agregar){
+
         AgregarIndigente llamar = new AgregarIndigente();
         llamar.setBounds(0,0,670,450);
         llamar.setVisible(true);
         llamar.setLocationRelativeTo(null);
         llamar.getContentPane().setBackground(new Color(178, 217, 227));//Color
-    
+    dispose();
 }//Fin if
 
 if (e.getSource() == Buscar){
     Buscar llamar = new Buscar();
+    dispose();
     llamar.setBounds(0,0,670,450);
     llamar.setVisible(true);
     llamar.setLocationRelativeTo(null);
@@ -142,6 +144,7 @@ if (e.getSource() == Buscar){
 
 if (e.getSource() == Mostrar){
     Mostrar llamar = new Mostrar();
+    dispose();
     llamar.setBounds(0,0,670,450);
     llamar.setVisible(true);
     llamar.setLocationRelativeTo(null);
