@@ -1,7 +1,6 @@
 package Vista;
 
 import javax.swing.*;
-import javax.swing.JButton;
 import Controlador.ArrayIndigente;
 import Modelo.Indigente;
 
