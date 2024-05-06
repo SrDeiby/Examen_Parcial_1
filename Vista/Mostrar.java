@@ -38,16 +38,22 @@ public class Mostrar extends JFrame {
         // Agregar el JScrollPane a la ventana
         add(scrollPane, BorderLayout.CENTER);
 
+        // Crear botón "Salir"
         JButton btnSalir = new JButton("Salir");
         btnSalir.setBackground(new Color(225, 197, 91)); 
+        // Agregar acción al botón "Salir"
         btnSalir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose(); // Cierra la ventana actual
+                dispose(); // Cierra la ventana actual (Mostrar)
                 Menu2 menu = new Menu2();
+                menu.setBounds(0,0,670,450);
+                menu.setLocationRelativeTo(null); // Centra la ventana Menu2 en la pantalla
                 menu.setVisible(true); // Muestra la ventana del Menu2
             }
         });
+
+        // Agregar el botón "Salir" al panel sur de la ventana
         add(btnSalir, BorderLayout.SOUTH);
 
         // Centrar la ventana en la pantalla
