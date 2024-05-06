@@ -21,11 +21,12 @@ public class Mostrar extends JFrame {
         
         // Recorrer la lista de indigentes y agregar sus datos al StringBuilder
         for (Indigente indigente : ArrayIndigente.indigente) {
+            sb.append("\n"); // Añadir una línea en blanco
             sb.append("Nombre: ").append(indigente.getNombre()).append("\n");
             sb.append("Edad: ").append(indigente.getEdad()).append("\n");
             sb.append("Tiempo: ").append(indigente.getTiempo()).append("\n");
             sb.append("Número de cama: ").append(indigente.getNumeroCama()).append("\n");
-            sb.append("Servicio médico: ").append(indigente.determinarServicioMedico()).append("\n");
+            sb.append("Servicio médico adicional: ").append(indigente.determinarServicioMedico()).append("\n");
             sb.append("_________________________________________");
             sb.append("\n"); // Añadir una línea en blanco entre cada indigente
         }
