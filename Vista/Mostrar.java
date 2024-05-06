@@ -9,9 +9,7 @@ import java.awt.event.ActionListener;
 
 public class Mostrar extends JFrame {
 
-    /**
-     * 
-     */
+
     public Mostrar() {
         // Configurar la ventana
         setTitle("Registro completo del refugio");

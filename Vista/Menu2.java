@@ -148,7 +148,9 @@ if (e.getSource() == Mostrar){
 }//fin ir a mostrar
 
 if (e.getSource() == Eliminar){
-    
+        Eliminar eliminar = new Eliminar(); 
+        eliminar.setVisible(true); 
+        dispose(); 
 }//fin ir a eliminar
 
 }//Fin de las acciones
