@@ -90,6 +90,7 @@ public class Buscar extends JFrame  implements ActionListener {
         Salir.setBounds(420, 350, 100, 30);
         Salir.setBackground(new Color(225, 197, 91)); 
         Salir.setForeground(Color.BLACK);
+        Salir.addActionListener(this);
         add(Salir);
 
     }// del abstracto
@@ -122,10 +123,18 @@ public void actionPerformed(ActionEvent e) {
 			  }//Fin del for
 		  if(PersonaEncontrada == false) {
 			  
-				 JOptionPane.showMessageDialog(null, "Persona no existente");
+				 JOptionPane.showMessageDialog(null, "No hay nadie en esa cama");
 			  }//Fin if falso
 
-}
+}//Fin del buscar
+
+if(e.getSource() == Salir){
+    Menu2 llamar = new Menu2();
+    llamar.setBounds(0,0,670,450);
+    llamar.setVisible(true);
+    llamar.setLocationRelativeTo(null);
+    llamar.getContentPane().setBackground(Color.WHITE);//Color    
+  }//Fin del salir
 
 }//Fin de las acciones
 
