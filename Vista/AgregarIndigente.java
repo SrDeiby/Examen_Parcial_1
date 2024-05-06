@@ -24,6 +24,7 @@ public class AgregarIndigente extends JFrame implements ActionListener{
         add(Agregar);
     
         Salir = new JButton("Salir");
+        Salir.addActionListener(this);
         Salir.setBounds(420, 350, 100, 30);
         Salir.setBackground(new Color(225, 197, 91)); 
         Salir.setForeground(Color.BLACK);
@@ -115,9 +116,18 @@ public class AgregarIndigente extends JFrame implements ActionListener{
         TextEdad.setText("");
         TextTiempo.setText("");
         TextCama.setText(""); 
-         JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente");
+        JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente");
          }//Fin if
     
+         if (e.getSource() == Salir){
+            Menu2 llamar = new Menu2();
+            llamar.setBounds(0,0,670,450);
+            llamar.setVisible(true);
+            llamar.setLocationRelativeTo(null);
+            llamar.getContentPane().setBackground(Color.WHITE);//Color    
+        
+
+         }
     }//Fin de las acciones
     
     }//Fin de la clase

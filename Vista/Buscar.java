@@ -8,14 +8,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
-import Controlador.ArrayRefugio;
-import Modelo.Refugio;
-
+import Controlador.ArrayIndigente;
+import Modelo.Indigente;
 import java.awt.*;
 
 public class Buscar extends JFrame  implements ActionListener {
-	private JLabel 	Label4, Label6, Label5,Label8, Label9, Label10;
+	private JLabel 	Label4, Label6, Label5, Label7,Label8, Label9, Label10, Label11;
 	private JTextField Co;
     private JButton Buscar, Salir;
 
@@ -31,19 +29,26 @@ public class Buscar extends JFrame  implements ActionListener {
         Label4.setFont(fuent);   
 	    add(Label4);
 	    
-	    Label5 = new JLabel("Codigo: ");
+	    Label5 = new JLabel("Edad: ");
 	    Label5.setBounds(20, 140, 100, 30);
         Font fuente = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
         Label5.setForeground(Color.BLACK);	 
         Label5.setFont(fuente);  
 	    add(Label5);
 	     
-	    Label6 = new JLabel("Ubicacion: ");
+	    Label6 = new JLabel("Tiempo: ");
 	    Label6.setBounds(20, 180, 100, 30);	
         Font fuentee = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
         Label6.setFont(fuentee);
         Label6.setForeground(Color.BLACK);
 	    add(Label6);
+
+        Label7 = new JLabel("Cama: ");
+	    Label7.setBounds(20, 220, 100, 30);	
+        Font fue = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
+        Label7.setFont(fue);
+        Label7.setForeground(Color.BLACK);
+	    add(Label7);
 	    
 	    Label8 = new JLabel(" ");
 	    Label8.setBounds(130, 100, 200, 30);	   
@@ -57,13 +62,17 @@ public class Buscar extends JFrame  implements ActionListener {
 	    Label10.setBounds(130, 180, 200, 30);	   
 	    add(Label10);
 
+        Label11 = new JLabel(" ");
+	    Label11.setBounds(130, 220, 200, 30);	   
+	    add(Label11);
+
         Co = new JTextField("");
         Co.setBounds(100, 40, 120, 30);
         Co.setBackground(new Color(210, 240, 236)); 
         Co.setBorder(null);
         add(Co);
     
-        Label5 = new JLabel("<html>Codigo</html>");
+        Label5 = new JLabel("<html>Cama</html>");
         Label5.setBounds(20, 35, 100, 40);
         Font fuenteee = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
         Label5.setForeground(Color.BLACK);
@@ -96,23 +105,24 @@ public class Buscar extends JFrame  implements ActionListener {
 public void actionPerformed(ActionEvent e) {
 
     if(e.getSource() == Buscar){
- boolean RefugioEncontrado = false;
+ boolean PersonaEncontrada = false;
 		  String Buscarr = Co.getText() ;
-		  for (Refugio a : ArrayRefugio.refugio) { //Foreach que nos ayuda a recorrer el ArrayList
+		  for (Indigente a : ArrayIndigente.indigente) { //Foreach que nos ayuda a recorrer el ArrayList
 	
-			  if(a.getLugar().equals(Buscarr)) {
+			  if(a.getNumeroCama().equals(Buscarr)) {
 			  Label8.setText(a.getNombre());
-			  Label9.setText(a.getLugar());	  
-			  Label10.setText(a.getCapacidad());
-				  RefugioEncontrado = true;
+			  Label9.setText(a.getEdad());	  
+			  Label10.setText(a.getTiempo());
+              Label11.setText(a.getNumeroCama());
+				  PersonaEncontrada = true;
 			  }//Fin del if
 			  
 			 
 			  
 			  }//Fin del for
-		  if(RefugioEncontrado == false) {
+		  if(PersonaEncontrada == false) {
 			  
-				 JOptionPane.showMessageDialog(null, "Refugio no existente");
+				 JOptionPane.showMessageDialog(null, "Persona no existente");
 			  }//Fin if falso
 
 }
