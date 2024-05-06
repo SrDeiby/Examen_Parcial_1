@@ -7,8 +7,8 @@ import Modelo.Refugio;
 import java.awt.*;
 
 public class AgregarRefugio extends JFrame implements ActionListener {
-private JButton Agregar, Salir;
-private JLabel La1, La2, La3;
+private JButton Agregar, Continuar;
+private JLabel La1, La2, La3, La4;
 private JTextField TextNombre, TextLugar, TextCapacidad;
 public static String NOM, LUG, CAP;
 public AgregarRefugio(){
@@ -16,60 +16,69 @@ public AgregarRefugio(){
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     Agregar = new JButton("Agregar");
-    Agregar.setBounds(540, 350, 100, 30);
+    Agregar.addActionListener(this); 
+    Agregar.setBounds(420, 350, 100, 30);
     Agregar.setBackground(new Color(225, 197, 91)); 
     Agregar.setForeground(Color.BLACK);
     add(Agregar);
 
-    Salir = new JButton("Salir");
-    Salir.setBounds(420, 350, 100, 30);
-    Salir.setBackground(new Color(225, 197, 91)); 
-    Salir.setForeground(Color.BLACK);
-    add(Salir);
+    Continuar = new JButton("Continuar");
+    Continuar.addActionListener(this); 
+    Continuar.setBounds(540, 350, 100, 30);
+    Continuar.setBackground(new Color(225, 197, 91)); 
+    Continuar.setForeground(Color.BLACK);
+    add(Continuar);
 
     La1 = new JLabel("<html>Nombre</html>");
-     La1.setBounds(20, 20, 100, 40);
+     La1.setBounds(20, 100, 100, 40);
      Font fuent = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
      La1.setForeground(Color.BLACK);
      La1.setFont(fuent);
      add(La1);
 
      La2 = new JLabel("<html>Ubicacion</html>");
-     La2.setBounds(20, 70, 100, 40);
+     La2.setBounds(20, 150, 100, 40);
      Font fuente = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
      La2.setForeground(Color.BLACK);
      La2.setFont(fuente);
      add(La2);
 
      La3 = new JLabel("<html>Capacidad</html>");
-     La3.setBounds(20, 120, 100, 40);
+     La3.setBounds(20, 200, 100, 40);
      Font fuentee = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
      La3.setForeground(Color.BLACK);
      La3.setFont(fuentee);
      add(La3);
 
     TextNombre = new JTextField("");
-    TextNombre.setBounds(130, 25, 120, 30);
+    TextNombre.setBounds(130, 105, 120, 30);
     TextNombre.setBackground(new Color(210, 240, 236)); 
     TextNombre.setBorder(null);
     add(TextNombre);
 
     TextLugar = new JTextField("");
-    TextLugar.setBounds(130, 75, 120, 30);
+    TextLugar.setBounds(130, 155, 120, 30);
     TextLugar.setBackground(new Color(210, 240, 236)); 
     TextLugar.setBorder(null);
     add(TextLugar);
 
     TextCapacidad = new JTextField("");
-    TextCapacidad.setBounds(130, 125, 120, 30);
+    TextCapacidad.setBounds(130, 205, 120, 30);
     TextCapacidad.setBackground(new Color(210, 240, 236)); 
     TextCapacidad.setBorder(null);
     add(TextCapacidad);
 
+    La4 = new JLabel("<html>Registrar tu Refugio</html>");
+     La4.setBounds(200, 20, 400, 50);
+     Font fue = new Font("Courier New", Font.BOLD, 20); // Tipo de fuente, estilo y tamaño
+     La4.setForeground(Color.BLACK);
+     La4.setFont(fue);
+     add(La4);
+
 }//Fin del constructor
 
 public static void main(String[] Ars){//Creamos el JFrame 
-    Agregar llamar = new Agregar();
+    AgregarRefugio llamar = new AgregarRefugio();
     llamar.setBounds(0,0,670,450);
     llamar.setVisible(true);
     llamar.setLocationRelativeTo(null);
@@ -96,6 +105,19 @@ public void actionPerformed(ActionEvent e) {
      JOptionPane.showMessageDialog(null, "El refugio se ha agregado exitosamente");
      }//Fin if
 
+     if (e.getSource() == Continuar){
+        Menu2 llamar = new Menu2();
+        llamar.setBounds(0,0,670,450);
+        llamar.setVisible(true);
+        llamar.setLocationRelativeTo(null);
+        llamar.getContentPane().setBackground(Color.WHITE);//Color    
+    
+
+     }
+
 }//Fin de las acciones
 
+public String getNOMBRE() {
+    return NOM;
+}
 }//Fin de la clase

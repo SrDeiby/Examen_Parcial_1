@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Menu2",
+            "request": "launch",
+            "mainClass": "Vista.Menu2",
+            "projectName": "Examen_Parcial_1_313dd825"
+        },
+        {
+            "type": "java",
+            "name": "AgregarRefugio",
+            "request": "launch",
+            "mainClass": "Vista.AgregarRefugio",
+            "projectName": "Examen_Parcial_1_313dd825"
+        },
+        {
+            "type": "java",
             "name": "AgregarIndigente",
             "request": "launch",
             "mainClass": "Vista.AgregarIndigente",

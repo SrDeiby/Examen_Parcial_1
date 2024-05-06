@@ -1,16 +1,23 @@
 package Vista;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import Controlador.ArrayRefugio;
+import Modelo.Refugio;
+
 import java.awt.*;
 
 public class Buscar extends JFrame  implements ActionListener {
 	private JLabel 	Label4, Label6, Label5,Label8, Label9, Label10;
 	private JTextField Co;
+    private JButton Buscar, Salir;
 
 	public Buscar(){
 	//Creacion de los elementos de la intefaz grafica
@@ -39,15 +46,15 @@ public class Buscar extends JFrame  implements ActionListener {
 	    add(Label6);
 	    
 	    Label8 = new JLabel(" ");
-	    Label8.setBounds(100, 100, 100, 30);	   
+	    Label8.setBounds(130, 100, 200, 30);	   
 	    add(Label8);
 	    
 	    Label9 = new JLabel(" ");
-	    Label9.setBounds(100, 140, 100, 30);	   
+	    Label9.setBounds(130, 140, 200, 30);	   
 	    add(Label9);
 	    
 	    Label10 = new JLabel(" ");
-	    Label10.setBounds(100, 180, 100, 30);	   
+	    Label10.setBounds(130, 180, 200, 30);	   
 	    add(Label10);
 
         Co = new JTextField("");
@@ -63,6 +70,19 @@ public class Buscar extends JFrame  implements ActionListener {
         Label5.setFont(fuenteee);
         add(Label5);
 
+         Buscar = new JButton("Buscar");
+        Buscar.setBounds(540, 350, 100, 30);
+        Buscar.setBackground(new Color(225, 197, 91)); 
+        Buscar.setForeground(Color.BLACK);
+        Buscar.addActionListener(this); 
+        add(Buscar);
+    
+        Salir = new JButton("Salir");
+        Salir.setBounds(420, 350, 100, 30);
+        Salir.setBackground(new Color(225, 197, 91)); 
+        Salir.setForeground(Color.BLACK);
+        add(Salir);
+
     }// del abstracto
     public static void main(String[] Ars){
         Buscar llamar = new Buscar();
@@ -74,6 +94,28 @@ public class Buscar extends JFrame  implements ActionListener {
 
         @Override
 public void actionPerformed(ActionEvent e) {
+
+    if(e.getSource() == Buscar){
+ boolean RefugioEncontrado = false;
+		  String Buscarr = Co.getText() ;
+		  for (Refugio a : ArrayRefugio.refugio) { //Foreach que nos ayuda a recorrer el ArrayList
+	
+			  if(a.getLugar().equals(Buscarr)) {
+			  Label8.setText(a.getNombre());
+			  Label9.setText(a.getLugar());	  
+			  Label10.setText(a.getCapacidad());
+				  RefugioEncontrado = true;
+			  }//Fin del if
+			  
+			 
+			  
+			  }//Fin del for
+		  if(RefugioEncontrado == false) {
+			  
+				 JOptionPane.showMessageDialog(null, "Refugio no existente");
+			  }//Fin if falso
+
+}
 
 }//Fin de las acciones
 
