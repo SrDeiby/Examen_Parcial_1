@@ -4,6 +4,7 @@ import javax.swing.*;
 import Controlador.ArrayIndigente;
 import Modelo.Indigente;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Mostrar extends JFrame {
@@ -40,6 +41,7 @@ public class Mostrar extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
 
         JButton btnSalir = new JButton("Salir");
+        btnSalir.setBackground(new Color(225, 197, 91)); 
         btnSalir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
