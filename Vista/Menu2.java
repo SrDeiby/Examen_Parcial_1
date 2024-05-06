@@ -144,8 +144,8 @@ if (e.getSource() == Mostrar){
     Mostrar llamar = new Mostrar();
     llamar.setBounds(0,0,670,450);
     llamar.setVisible(true);
-    llamar.setLocationRelativeTo(null);
-    llamar.getContentPane().setBackground(new Color(178, 217, 227));//Color
+
+}//fin ir a mostrar
 
 if (e.getSource() == Eliminar){
 

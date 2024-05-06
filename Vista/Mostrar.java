@@ -1,8 +1,10 @@
 package Vista;
 
 import javax.swing.*;
+
 import Controlador.ArrayIndigente;
 import Modelo.Indigente;
+
 import java.awt.*;
 
 public class Mostrar extends JFrame {
@@ -34,6 +36,9 @@ public class Mostrar extends JFrame {
         
         // Agregar el JScrollPane a la ventana
         add(scrollPane, BorderLayout.CENTER);
+        
+        // Centrar la ventana en la pantalla
+        setLocationRelativeTo(null);
         
         // Hacer visible la ventana
         setVisible(true);
