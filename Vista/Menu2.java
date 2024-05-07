@@ -106,9 +106,6 @@ public Menu2(){
      Panel1.setBounds(0, 0, 200, 450);
      Panel1.setBackground(new Color(114, 47, 169));
      add(Panel1);
-
-
-
 }//Fin del metodo constructor
 
 public static void main(String[] Ars){//Creamos el JFrame 
@@ -117,7 +114,6 @@ public static void main(String[] Ars){//Creamos el JFrame
     llamar.setVisible(true);
     llamar.setLocationRelativeTo(null);
     llamar.getContentPane().setBackground(Color.WHITE);//Color    
-
     }//Fin del main
 
 

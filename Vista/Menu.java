@@ -1,4 +1,5 @@
 package Vista;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -94,7 +95,6 @@ public static void main(String[] Ars){//Creamos el JFrame
     llamar.getContentPane().setBackground(Color.WHITE);//Color    
 
     }//Fin del main
-
 
 @Override
 public void actionPerformed(ActionEvent e) {
