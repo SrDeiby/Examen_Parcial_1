@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Controlador.Main",
+            "projectName": "Examen_Parcial_1_313dd825"
+        },
+        {
+            "type": "java",
             "name": "Mostrar",
             "request": "launch",
             "mainClass": "Vista.Mostrar",
