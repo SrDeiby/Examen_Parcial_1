@@ -7,7 +7,7 @@ import Modelo.Refugio;
 import java.awt.*;
 
 public class AgregarRefugio extends JFrame implements ActionListener {
-private JButton Agregar, Continuar;
+private JButton Continuar;
 private JLabel La1, La2, La3, La4;
 private JTextField TextNombre, TextLugar, TextCapacidad;
 public static String NOM, LUG, CAP;
@@ -15,13 +15,6 @@ public AgregarRefugio(){
     //Creacion de los elementos de la intefaz grafica
     setLayout(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-    Agregar = new JButton("Agregar");
-    Agregar.addActionListener(this); 
-    Agregar.setBounds(420, 350, 100, 30);
-    Agregar.setBackground(new Color(225, 197, 91)); 
-    Agregar.setForeground(Color.BLACK);
-    add(Agregar);
 
     Continuar = new JButton("Continuar");
     Continuar.addActionListener(this); 
@@ -89,22 +82,6 @@ public static void main(String[] Ars){//Creamos el JFrame
 
 @Override
 public void actionPerformed(ActionEvent e) {
-
-    if (e.getSource() == Agregar){
-        //Accion del boton de Agregar
-     NOM = TextNombre.getText();
-     LUG = TextLugar.getText();
-     CAP = TextCapacidad.getText();
-     
-     
-    ArrayRefugio.refugio.add(new Refugio(NOM, LUG, CAP));//Guardamos los elementos en el ArrayList que se obtuvieron desde los JTextField en la interfaz grafica
-     
-    TextNombre.setText("");
-    TextLugar.setText("");
-    TextCapacidad.setText("");
-       
-     JOptionPane.showMessageDialog(null, "El refugio se ha agregado exitosamente");
-     }//Fin if
 
      if (e.getSource() == Continuar){
         //Accion del boton de Agregar

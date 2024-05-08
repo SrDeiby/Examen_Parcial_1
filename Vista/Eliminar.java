@@ -61,9 +61,12 @@ public class Eliminar extends JFrame {
         btnSalir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Menu2 llamar = new Menu2();
+                llamar.setBounds(0,0,670,450);
+                llamar.setVisible(true);
+                llamar.setLocationRelativeTo(null);
+                llamar.getContentPane().setBackground(Color.WHITE);//Color 
                 dispose(); // Cierra la ventana actual
-                Menu2 menu = new Menu2();
-                menu.setVisible(true); // Muestra la ventana del Menu2
             }
         });
 

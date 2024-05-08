@@ -50,7 +50,7 @@ public class AgregarIndigente extends JFrame implements ActionListener {
         La2.setFont(fuente);
         add(La2);
 
-        La3 = new JLabel("<html>Tiempo</html>");
+        La3 = new JLabel("<html>Tiempo(sin hogar)</html>");
         La3.setBounds(20, 200, 100, 40);
         Font fuentee = new Font("Courier New", Font.BOLD, 15); // Tipo de fuente, estilo y tamaño
         La3.setForeground(Color.BLACK);
