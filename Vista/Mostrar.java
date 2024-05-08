@@ -56,7 +56,7 @@ public class Mostrar extends JFrame {
             }
         });
 
-        // Agregar el botón "Salir" al panel sur de la ventana
+        // Agregar el botón "Salir"
         add(btnSalir, BorderLayout.SOUTH);
         
         // Centrar la ventana en la pantalla

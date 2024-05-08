@@ -1,4 +1,5 @@
 package Vista;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -12,6 +13,7 @@ private JLabel La1, La2, La3, La4;
 private JTextField TextNombre, TextLugar, TextCapacidad;
 public static String NOM, LUG, CAP;
 public AgregarRefugio(){
+    
     //Creacion de los elementos de la intefaz grafica
     setLayout(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);

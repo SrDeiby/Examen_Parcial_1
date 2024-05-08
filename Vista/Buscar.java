@@ -2,7 +2,6 @@ package Vista;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -105,6 +104,7 @@ public class Buscar extends JFrame  implements ActionListener {
         add(Salir);
 
     }// del abstracto
+
     public static void main(String[] Ars){
         Buscar llamar = new Buscar();
         llamar.setBounds(0,0,670,450);
@@ -114,6 +114,7 @@ public class Buscar extends JFrame  implements ActionListener {
 	    }//Fin del main
 
         @Override
+        
 public void actionPerformed(ActionEvent e) {
 
     if(e.getSource() == Buscar){

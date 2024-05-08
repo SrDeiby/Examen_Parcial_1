@@ -1,10 +1,8 @@
 package Vista;
 
 import javax.swing.*;
-
 import Controlador.ArrayIndigente;
 import Modelo.Indigente;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +15,7 @@ public class Eliminar extends JFrame {
         setSize(300, 150);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-
+        
         // Crear y configurar los componentes
         JLabel lblNumeroCama = new JLabel("Número de Cama:");
         JTextField txtNumeroCama = new JTextField();
@@ -25,7 +23,6 @@ public class Eliminar extends JFrame {
         btnEliminar.setBackground(new Color(225, 197, 91)); 
         JButton btnSalir = new JButton("Salir");
         btnSalir.setBackground(new Color(225, 197, 91)); 
-
         // Configurar el panel para los campos de entrada y el botón
         JPanel panelDatos = new JPanel();
         panelDatos.setLayout(new GridLayout(2, 2));

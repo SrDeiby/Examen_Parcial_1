@@ -7,7 +7,6 @@ import Controlador.ArrayIndigente;
 import Modelo.Indigente;
 import Modelo.IndigenteFemenino;
 import Modelo.IndigenteMasculino;
-
 import java.awt.*;
 
 public class AgregarIndigente extends JFrame implements ActionListener {
