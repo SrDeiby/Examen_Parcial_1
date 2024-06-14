@@ -17,7 +17,7 @@ public Menu(){
     setLayout(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-     Agregar = new JButton("Agregar");
+     Agregar = new JButton("Continuar");
      Agregar.setBounds(210, 210, 430,35);  
      Agregar.setHorizontalAlignment(SwingConstants.LEFT);
      Agregar.setBackground(new Color(39, 244, 225));
@@ -42,7 +42,7 @@ public Menu(){
      add(Label2);
 
      Label3 = new JLabel("<html><div style='text-align: justify;'> "
-     + "Este programa te va a ayudar a administrar de la mejor manera posible tu refugio. Aquí podrás agregar el límite de camas y servicios con los que cuenta tu refugio. Mediante las acciones de agregar, buscar, mostrar y eliminar a las personas, el programa te beneficiará en el manejo muy organizado del refugio para las personas sin hogar. </div></html>");
+     + "Este programa te va a ayudar a administrar de la mejor manera posible tu refugio. Mediante las acciones de agregar, actualizar, mostrar y eliminar a las personas, el programa te beneficiará en el manejo muy organizado del refugio para las personas sin hogar. </div></html>");
      Label3.setBounds(205, -60, 450, 400);
      Font fuen = new Font("Courier New", Font.BOLD, 12); // Tipo de fuente, estilo y tamaño
      Label3.setForeground(new Color(70, 111, 106 ));
@@ -100,7 +100,7 @@ public static void main(String[] Ars){//Creamos el JFrame
 public void actionPerformed(ActionEvent e) {
     
     if (e.getSource() == Agregar){
-        AgregarRefugio llamar = new AgregarRefugio();
+        Login llamar = new Login();
         dispose();
         llamar.setBounds(0,0,670,450);
         llamar.setVisible(true);

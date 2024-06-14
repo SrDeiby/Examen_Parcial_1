@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Login",
+            "request": "launch",
+            "mainClass": "Vista.Login",
+            "projectName": "Examen_Parcial_1_313dd825"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "Controlador.Main",

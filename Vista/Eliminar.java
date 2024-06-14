@@ -1,11 +1,14 @@
 package Vista;
 
 import javax.swing.*;
-import Controlador.ArrayIndigente;
-import Modelo.Indigente;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Eliminar extends JFrame {
 
@@ -43,15 +46,50 @@ public class Eliminar extends JFrame {
         btnEliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String numeroCama = txtNumeroCama.getText();
-                // Lógica para eliminar el indigente con el número de cama ingresado
-                boolean eliminado = eliminarIndigente(numeroCama);
-                if (eliminado) {
-                    JOptionPane.showMessageDialog(null, "Persona eliminada correctamente");
-                } else {
-                    JOptionPane.showMessageDialog(null, "No se encontró ninguna persona con ese número de cama");
-                }
+             // Acción del botón de Eliminar
+        String CAMA = txtNumeroCama.getText();
+
+        Connection con = null;
+        PreparedStatement pstmt = null;
+
+        String SQL = "DELETE FROM indigente WHERE Cama = ?";
+
+        try {
+            // Establecer la conexión
+            Class.forName("com.mysql.jdbc.Driver"); // Asegúrate de usar el controlador correcto
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/refugio?verifyServerCertificate=false&useSSL=true", "root", "Deiby_R04");
+            con.setAutoCommit(true);
+
+            // Preparar la consulta
+            pstmt = (PreparedStatement) con.prepareStatement(SQL);
+            pstmt.setString(1, CAMA);
+
+            // Ejecutar la consulta
+            int exito = pstmt.executeUpdate();
+
+            if (exito > 0) {
+                JOptionPane.showMessageDialog(null, "La persona se ha eliminado exitosamente de la base de datos");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró ninguna persona con el número de cama especificado");
             }
+
+            // Limpiar el campo de texto
+            txtNumeroCama.setText("");
+        } catch (ClassNotFoundException cnfe) {
+            cnfe.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: No se encontró el controlador JDBC.");
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos: " + sqle.getMessage());
+        } finally {
+            // Cerrar los recursos
+            try {
+                if (pstmt != null) pstmt.close();
+                if (con != null) con.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }}
         });
 
         // Acción del botón "Salir"
@@ -74,16 +112,6 @@ public class Eliminar extends JFrame {
         setVisible(true);
     }
 
-    // Método para eliminar el indigente con el número de cama especificado
-    private boolean eliminarIndigente(String numeroCama) {
-        for (Indigente indigente : ArrayIndigente.indigente) {
-            if (indigente.getNumeroCama().equals(numeroCama)) {
-                ArrayIndigente.indigente.remove(indigente);
-                return true; // Se encontró y eliminó al indigente
-            }
-        }
-        return false; // No se encontró al indigente
-    }
 
     public static void main(String[] args) {
         // Crear y mostrar la ventana

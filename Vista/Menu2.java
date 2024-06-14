@@ -2,23 +2,33 @@ package Vista;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSetMetaData;
+
 import java.awt.*;
 
 public class Menu2 extends JFrame implements ActionListener {
    private JPanel Panel1;
-   private JButton Agregar, Buscar, Eliminar, Mostrar;
+   private JButton Agregar, Buscar, Eliminar, Mostrar, Salir, Autores;
    private JLabel Label1, Label2, Label3, Label4, Label5, Label6, Label7, Label8;
    private ImageIcon imagen;
    private Icon icono;
 
-public Menu2(){     
+    public Menu2(){     
     //Creacion de los elementos de la intefaz grafica
     setLayout(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-     Buscar = new JButton("Buscar");
-     Buscar.setBounds(210, 270, 430,35);
+     Buscar = new JButton("Actualizar");
+     Buscar.setBounds(210, 250, 430,35);
      Buscar.setHorizontalAlignment(SwingConstants.LEFT);  
      Buscar.setBackground(new Color(39, 244, 225));
      Buscar.setBorderPainted(false);
@@ -26,7 +36,7 @@ public Menu2(){
      add(Buscar);
 
      Mostrar = new JButton("Mostrar");
-     Mostrar.setBounds(210, 310, 430,35);
+     Mostrar.setBounds(210, 290, 430,35);
      Mostrar.setHorizontalAlignment(SwingConstants.LEFT);
      Mostrar.setBackground(new Color(39, 244, 225));
      Mostrar.setBorderPainted(false);  
@@ -34,7 +44,7 @@ public Menu2(){
      add(Mostrar);
 
      Agregar = new JButton("Agregar");
-     Agregar.setBounds(210, 230, 430,35);  
+     Agregar.setBounds(210, 210, 430,35);  
      Agregar.setHorizontalAlignment(SwingConstants.LEFT);
      Agregar.setBackground(new Color(39, 244, 225));
      Agregar.setBorderPainted(false);
@@ -42,12 +52,28 @@ public Menu2(){
      add(Agregar);
 
      Eliminar = new JButton("Eliminar");
-     Eliminar.setBounds(210, 350, 430,35);
+     Eliminar.setBounds(210, 330, 430,35);
      Eliminar.setHorizontalAlignment(SwingConstants.LEFT);  
      Eliminar.setBackground(new Color(39, 244, 225));
      Eliminar.setBorderPainted(false);
      Eliminar.addActionListener(this); 
      add(Eliminar);
+
+     Salir = new JButton("Salir");
+     Salir.setBounds(540, 370, 100,30);
+     Salir.setHorizontalAlignment(SwingConstants.LEFT);  
+     Salir.setBackground(new Color(39, 244, 225));
+     Salir.setBorderPainted(false);
+     Salir.addActionListener(this); 
+     add(Salir);
+
+     Autores = new JButton("Derechos");
+     Autores.setBounds(430, 370, 100,30);
+     Autores.setHorizontalAlignment(SwingConstants.LEFT);  
+     Autores.setBackground(new Color(39, 244, 225));
+     Autores.setBorderPainted(false);
+     Autores.addActionListener(this); 
+     add(Autores);
 
      Label1 = new JLabel("<html>Gracias por <center> elegir a <br>Programa <br>de <br>Centros <br>de <br>Refugios <br>Rodriguez</html>");
      Label1.setBounds(0, 40, 200, 300);
@@ -80,9 +106,9 @@ public Menu2(){
      Label4.setHorizontalAlignment(SwingConstants.CENTER);
      add(Label4);
 
-    Label5 = new JLabel();//En este Label se inserta la imagen de fondo
+    Label5 = new JLabel();//En este Label se inserta la imagen de instagram
     Label5.setBounds(200, 0, 30, 30);  
-    this.Pintar(this.Label5, "imagenes\\instagram.png");
+    this.Pintar(this.Label5, "imagenes\\insta.jpeg");
     add(Label5);
 
     Label6 = new JLabel("Refugio_Rodriguez");
@@ -91,9 +117,9 @@ public Menu2(){
     Label6.setHorizontalAlignment(SwingConstants.CENTER);
     add(Label6);
 
-    Label7 = new JLabel();//En este Label se inserta la imagen de fondo
+    Label7 = new JLabel();//En este Label se inserta la imagen de whatsappp
     Label7.setBounds(370, 0, 30, 30);  
-    this.Pintar(this.Label7, "imagenes\\whatsapp.jpeg");
+    this.Pintar(this.Label7, "imagenes\\Whatsappp.jpg");
     add(Label7);
 
     Label8 = new JLabel("61827027");
@@ -131,20 +157,76 @@ public void actionPerformed(ActionEvent e) {
 }//Fin if
 
 if (e.getSource() == Buscar){
-    Buscar llamar = new Buscar();
-    dispose();
-    llamar.setBounds(0,0,670,450);
-    llamar.setVisible(true);
-    llamar.setLocationRelativeTo(null);
-    llamar.getContentPane().setBackground(new Color(178, 217, 227));//Color
+
+
+}//Fin ir a llamar
+
+if (e.getSource() == Salir){
+dispose();
+}//Fin ir a llamar
+
+if (e.getSource() == Autores){
+JOptionPane.showMessageDialog(null, "Creadores del sistema: \n- Deiby Adrián Ruiz Rodríguez \n- Ángeles Gabriela Rodríguez Badilla");
+
 }//Fin ir a llamar
 
 if (e.getSource() == Mostrar){
-    Mostrar llamar = new Mostrar();
-    dispose();
-    llamar.setBounds(0,0,670,450);
-    llamar.setVisible(true);
-    llamar.setLocationRelativeTo(null);
+ Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        String SQL = "SELECT Nombre, Edad, Tiempo, Cama, Sexo FROM indigente";
+        
+        try {
+            // Establecer la conexión
+            Class.forName("com.mysql.jdbc.Driver"); 
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/Refugio?verifyServerCertificate=false&useSSL=true", "root", "Deiby_R04");
+   
+            pstmt = (PreparedStatement) con.prepareStatement(SQL);
+
+            rs = pstmt.executeQuery();
+        
+            ResultSetMetaData resul = (ResultSetMetaData) rs.getMetaData();
+            int columnCount = resul.getColumnCount();
+
+            DefaultTableModel tableModel = new DefaultTableModel();
+            
+            for (int i = 1; i <= columnCount; i++) {
+                tableModel.addColumn(resul.getColumnName(i));
+            }
+            
+            // Añadir las filas al modelo de la tabla
+            while (rs.next()) {
+                Object[] row = new Object[columnCount];
+                for (int i = 1; i <= columnCount; i++) {
+                    row[i - 1] = rs.getObject(i);
+                }
+                tableModel.addRow(row);
+            }
+            
+            // Crear la tabla con el modelo y mostrarla en un JScrollPane
+            JTable table = new JTable(tableModel);
+            JScrollPane scrollPane = new JScrollPane(table);
+            
+            // Mostrar la tabla en un JOptionPane
+            JOptionPane.showMessageDialog(null, scrollPane, "Datos del Refugio", JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (ClassNotFoundException cnfe) {
+            cnfe.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: No se encontró el controlador JDBC.");
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos: " + sqle.getMessage());
+        } finally {
+            // Cerrar los recursos
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (con != null) con.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
 }//fin ir a mostrar
 
 if (e.getSource() == Eliminar){

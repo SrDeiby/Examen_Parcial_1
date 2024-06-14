@@ -2,6 +2,12 @@ package Vista;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import javax.swing.*;
 import Controlador.ArrayIndigente;
 import Modelo.Indigente;
@@ -141,19 +147,54 @@ public class AgregarIndigente extends JFrame implements ActionListener {
         JOptionPane.showMessageDialog(null, "El número de cama ya está en uso. Intente otro número.");
     } else {
 
-            if (selectedOption.equals("Masculino")) {
-                ArrayIndigente.indigente.add(new IndigenteMasculino(NOM, EDAD, TIEMPO, CAMA, selectedOption));
-                JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente");
-            } else {
-                ArrayIndigente.indigente.add(new IndigenteFemenino(NOM, EDAD, TIEMPO, CAMA, selectedOption));
-                JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente");
-            }
+        
+            Connection con = null;
+            PreparedStatement pstmt = null;
+            ResultSet rs = null;
+            String SQL = "INSERT INTO indigente (Nombre, Edad, Tiempo, Cama, Sexo) VALUES (?, ?, ?, ?, ?)";
             
-            TextNombree.setText("");
-            TextEdad.setText("");
-            TextTiempo.setText("");
-            TextCama.setText("");
+            try {
+                // Establecer la conexión
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/refugio?verifyServerCertificate=false&useSSL=true", "root", "Deiby_R04");
+                con.setAutoCommit(true);
+                
+                // Preparar la consulta
+                pstmt = con.prepareStatement(SQL);
+                pstmt.setString(1, NOM);
+                pstmt.setString(2, EDAD);
+                pstmt.setString(3, TIEMPO);
+                pstmt.setString(4, CAMA);
+                pstmt.setString(5, selectedOption);
+                
+                // Ejecutar la consulta
+                int exito = pstmt.executeUpdate();
+                
+                if (exito > 0) {
+                    JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente a la base de datos");
+                }
+                
+                JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente");
+                
+                // Limpiar los campos de texto
+                TextNombree.setText("");
+                TextEdad.setText("");
+                TextTiempo.setText("");
+                TextCama.setText("");
+            } catch (Exception ew) {
+                ew.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos");
+            } finally {
+                // Cerrar los recursos
+                try {
+                    if (rs != null) rs.close();
+                    if (pstmt != null) pstmt.close();
+                    if (con != null) con.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
         }
+    }
         } // Fin if
 
         if (e.getSource() == Salir) {//Accion del boton de salir
