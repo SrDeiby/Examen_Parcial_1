@@ -2,16 +2,11 @@ package Vista;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import javax.swing.*;
-import Modelo.Indigente;
-import Modelo.IndigenteFemenino;
-import Modelo.IndigenteMasculino;
 import java.awt.*;
 
 public class AgregarIndigente extends JFrame implements ActionListener {
@@ -164,11 +159,9 @@ public class AgregarIndigente extends JFrame implements ActionListener {
                 int exito = pstmt.executeUpdate();
                 
                 if (exito > 0) {
-                    JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente a la base de datos");
+                    JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente al refugio");
                 }
-                
-                JOptionPane.showMessageDialog(null, "La persona se ha agregado exitosamente");
-                
+    
                 // Limpiar los campos de texto
                 TextNombree.setText("");
                 TextEdad.setText("");
@@ -188,7 +181,7 @@ public class AgregarIndigente extends JFrame implements ActionListener {
                 }
         }
     }
-        } // Fin if
+        } // Fin if agregar
 
         if (e.getSource() == Salir) {//Accion del boton de salir
             Menu2 llamar = new Menu2();
@@ -198,7 +191,8 @@ public class AgregarIndigente extends JFrame implements ActionListener {
             llamar.setLocationRelativeTo(null);
             llamar.getContentPane().setBackground(Color.WHITE);// Color
 
-        }
+        }//Fin de Salir
+
     }// Fin de las acciones
 
 }// Fin de la clase

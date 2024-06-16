@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Login extends JFrame implements ActionListener {
 private JButton Continuar;
-private JLabel La1, LabelIma;
+private JLabel La1, La2, La3,LabelIma;
 private JTextField TextUsuario;
 private JPasswordField Contra;
 public static String NOM, LUG, CAP;
@@ -28,6 +28,21 @@ public Login(){
     La1.setHorizontalAlignment(SwingConstants.CENTER);
     add(La1);
 
+    La2 = new JLabel("Usuario");
+    La2.setBounds(165, 120, 200, 30);
+    La2.setForeground(Color.WHITE);
+    Font fuente = new Font("Courier New", Font.BOLD, 9); // Tipo de fuente, estilo y tamaño
+    La2.setFont(fuente);
+    La2.setHorizontalAlignment(SwingConstants.CENTER);
+    add(La2);
+
+    La3 = new JLabel("Contraseña");
+    La3.setBounds(172, 170, 200, 30);
+    La3.setForeground(Color.WHITE);
+    Font fuentee = new Font("Courier New", Font.BOLD, 9); // Tipo de fuente, estilo y tamaño
+    La3.setFont(fuentee);
+    La3.setHorizontalAlignment(SwingConstants.CENTER);
+    add(La3);
 
     Continuar = new JButton("Iniciar sesión");
     Continuar.addActionListener(this); 
@@ -46,7 +61,7 @@ public Login(){
     add(TextUsuario);
 
     Contra = new JPasswordField("");
-    Contra.setBounds(245, 180, 160, 30);
+    Contra.setBounds(245, 190, 160, 30);
     Contra.setBackground(new Color(42, 38, 38));
     Contra.setForeground(Color.WHITE);
     Contra.setBorder(null);
