@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javax.swing.*;
-import Controlador.ArrayIndigente;
 import Modelo.Indigente;
 import Modelo.IndigenteFemenino;
 import Modelo.IndigenteMasculino;
@@ -136,13 +135,7 @@ public class AgregarIndigente extends JFrame implements ActionListener {
             selectedOption = comboBox.getSelectedItem().toString();
            
             boolean camaDuplicada = false;
-    for (Indigente indigente : ArrayIndigente.indigente) {
-        if (indigente.getNumeroCama().equals(CAMA)) {
-            camaDuplicada = true;
-            break;
-        }
-    }
-    
+
     if (camaDuplicada) {//Codigo que nos permite que no se repitan las camas
         JOptionPane.showMessageDialog(null, "El número de cama ya está en uso. Intente otro número.");
     } else {

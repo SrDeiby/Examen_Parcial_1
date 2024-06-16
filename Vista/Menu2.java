@@ -157,7 +157,11 @@ public void actionPerformed(ActionEvent e) {
 }//Fin if
 
 if (e.getSource() == Buscar){
-
+    Actualizar llamar = new Actualizar();
+    llamar.setBounds(0, 0, 670, 450);
+    llamar.setVisible(true);
+    llamar.setLocationRelativeTo(null);
+    llamar.getContentPane().setBackground(new Color(178, 217, 227));// Color
 
 }//Fin ir a llamar
 
