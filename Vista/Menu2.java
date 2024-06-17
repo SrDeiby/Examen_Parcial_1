@@ -59,8 +59,8 @@ public class Menu2 extends JFrame implements ActionListener {
      Eliminar.addActionListener(this); 
      add(Eliminar);
 
-     Salir = new JButton("Salir");
-     Salir.setBounds(540, 370, 100,30);
+     Salir = new JButton("Cerrar programa");
+     Salir.setBounds(510, 370, 130,30);
      Salir.setHorizontalAlignment(SwingConstants.LEFT);  
      Salir.setBackground(new Color(39, 244, 225));
      Salir.setBorderPainted(false);
@@ -68,7 +68,7 @@ public class Menu2 extends JFrame implements ActionListener {
      add(Salir);
 
      Autores = new JButton("Derechos");
-     Autores.setBounds(430, 370, 100,30);
+     Autores.setBounds(400, 370, 100,30);
      Autores.setHorizontalAlignment(SwingConstants.LEFT);  
      Autores.setBackground(new Color(39, 244, 225));
      Autores.setBorderPainted(false);
@@ -170,7 +170,9 @@ dispose();
 }//Fin ir a llamar
 
 if (e.getSource() == Autores){
-JOptionPane.showMessageDialog(null, "Creadores del sistema: \n- Deiby Adrián Ruiz Rodríguez \n- Ángeles Gabriela Rodríguez Badilla");
+
+Autores auto = new Autores();
+auto.setVisible(true);
 
 }//Fin ir a llamar
 
